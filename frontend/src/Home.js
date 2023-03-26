@@ -16,40 +16,43 @@ const Home = function () {
   });
 
   return (
-    <div className="container">
-      <form action="" method="post">
-        <table >
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((usr, index) => (
+    <div className="App">
+
+      <div className="container">      
+        <form action="" method="post">
+          <table >
+            <thead>
               <tr>
-                <td>{index}</td>
-                <td className="name">{usr.name}</td>
-                <td className="email">{usr.email}</td>
-                <td>
-                  <button className="edit">Edit</button>
-                </td>
-                <td>
-                  <button className="delete">Delete</button>
-                </td>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
-            ))}
-            <tr>
-                <td colspan = '5'>
-                    <button>Add New</button>
-                </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
+            </thead>
+            <tbody>
+              {users.map((usr, index) => (
+                <tr>
+                  <td>{index}</td>
+                  <td className="name">{usr.name}</td>
+                  <td className="email">{usr.email}</td>
+                  <td>
+                    <button className="edit">Edit</button>
+                  </td>
+                  <td>
+                    <button className="delete">Delete</button>
+                  </td>
+                </tr>
+              ))}
+              <tr>
+                  <td colspan = '5'>
+                      <button>Add New</button>
+                  </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
     </div>
   );
 };
