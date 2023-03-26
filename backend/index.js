@@ -9,6 +9,15 @@ mongoose.connect(url);
 
 app.use(express.json());
 
+const cors=require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions)) // Use this after the variable declaration
+
 //Read
 app.get('',async (req,resp)=>
 {
@@ -48,9 +57,15 @@ app.put('/update/:_id', async(req,resp)=>
 //Delete
 app.delete('/delete/:_id', async(req,resp)=>
 {
-    // let data = await model.deleteOne();
-
-    resp.send(req.params._id);
+    try {
+        
+        let data = await model.deleteOne(req.params);
+        resp.send(data);
+    } catch (error) {
+        console.log("ID NOT FOUND")
+    }
+    // console.log(req.params);
+    resp.send("ID NOT FOUND");
 });
 
 //checking invalid urls
