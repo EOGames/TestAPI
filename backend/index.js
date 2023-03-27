@@ -1,15 +1,19 @@
 const mongoose = require ('mongoose');
 const express = require('express');
 const model = require('./Schema');
+const cors=require("cors");
 
 const url = "mongodb+srv://superuser:superuser@crud.a1359sv.mongodb.net/students";
 
 const app = express();
-mongoose.connect(url);
-
+mongoose.connect (url,
+    {
+        useNewUrlParser :true,
+        useUnifiedTopology: true
+    });
+    
 app.use(express.json());
 
-const cors=require("cors");
 const corsOptions ={
    origin:'*', 
    credentials:true,            //access-control-allow-credentials:true
@@ -22,6 +26,15 @@ app.use(cors(corsOptions)) // Use this after the variable declaration
 app.get('',async (req,resp)=>
 {
     let data = await model.find();
+    resp.send(data);
+});
+
+//Find By ID
+app.get('/find:_id', async (req,resp)=>
+{
+    console.log (req.params);
+    let data = await model.findById(req.params._id);
+    console.log(data);
     resp.send(data);
 });
 
@@ -59,13 +72,13 @@ app.delete('/delete/:_id', async(req,resp)=>
 {
     try {
         
-        let data = await model.deleteOne(req.params);
+        let data = await model.deleteOne({_id:req.params._id});
         resp.send(data);
     } catch (error) {
         console.log("ID NOT FOUND")
     }
     // console.log(req.params);
-    resp.send("ID NOT FOUND");
+//    resp.send("ID NOT FOUND");
 });
 
 //checking invalid urls

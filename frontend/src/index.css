@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color:#550600;
+  background-color:#550000;
 }
 
 code {
@@ -42,7 +42,7 @@ tr button
 button:hover
 {
   transform: scale(1.1);
-  background-color: aquamarine;
+  
 }
 
 .edit
@@ -87,15 +87,23 @@ th
   font-weight: 900;
 }
 
+.topbarHolder
+{
+  display: flex;
+  justify-content: center;
+}
+
 .topBar
 {
   display: flex;
-  background-color:#750902;
-  width: 100%;
- border-radius:50%; 
-  padding: 2.5vh;
+  background-color:#801515;
+  box-shadow: 5px 5px 0px #b11e1e,7px 7px 0px #4b0d0d;
+  width: 85%;
+  padding: 15px;
   margin-bottom: 2vh;
-  border: 4px dotted rgb(169, 154, 126);
+  margin-bottom: 2vh;
+   border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 100%;
   justify-content: space-evenly;
   
 }
@@ -103,8 +111,51 @@ th
 .nav
 {
   text-decoration: none;
-  color: #D4726A;
+  color: #FFAAAA;
+  text-shadow: 2px 2px 5px #0a0605;
   font-weight: 900;
-  font-size: 2em;
+  font-size: 1.5em;
   
+}
+
+.label
+{
+  color: #FFAAAA;
+  font-weight: 900;
+  font-size: 1.4vw;
+  text-shadow: 2px 2px 5px black;
+}
+
+.textField
+{
+  height: 4vh;
+  width: 20vw;
+  text-align: center;
+  margin: 20px;
+  box-shadow: 5px 5px 10px #300808;
+}
+
+.add
+{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 7%;
+}
+
+#saveButton
+{
+  width: 40%;
+ margin-left: 35%;
+ height: 5vh;
+ border-radius: 10%;
+ box-shadow: 5px 5px 10px #300808;
+
+ border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(181, 48, 0);
+  font-weight: 900;
+  font-size: .7em;
+  text-shadow: 2px 2px 5px black;
+  color: white;
 }
